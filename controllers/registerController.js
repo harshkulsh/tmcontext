@@ -4,6 +4,7 @@ const alert=require("alert");   //used to receive data from html pages
 const jwt=require("jsonwebtoken");
 const User=require("../model/user");        //used for storing usernames and passwords  
 
+const TOKEN_KEY="kutedfuyigkgtyg567irfkui6ukytu67retku7liyfu5esruk7trdtci5ewdjufkr";
 const register=async (req, res) => {
     // Our register logic starts here
     try {
@@ -44,7 +45,7 @@ const register=async (req, res) => {
       // Create token
       const token = jwt.sign(
         { user_id: user._id, username },
-        process.env.TOKEN_KEY,
+        TOKEN_KEY,
         {
           expiresIn: "90d",
         }

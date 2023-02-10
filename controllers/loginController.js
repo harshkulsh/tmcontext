@@ -6,6 +6,7 @@ const User=require("../model/user");        //used for storing usernames and pas
 
 const login=async (req, res) => {
 
+    const TOKEN_KEY="kutedfuyigkgtyg567irfkui6ukytu67retku7liyfu5esruk7trdtci5ewdjufkr";
     // Our login logic starts here
     try {
       // Get user input
@@ -22,7 +23,7 @@ const login=async (req, res) => {
         // Create token
         const token = jwt.sign(
           { user_id: user._id, username },
-          process.env.TOKEN_KEY,
+          TOKEN_KEY,
           {
             expiresIn: "90d",
           }
